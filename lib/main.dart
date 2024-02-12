@@ -39,8 +39,9 @@ class MyApp extends StatelessWidget {
               height:2,color:AppColor.grey,fontSize: 14),
         ),
       ),
-      home:const Language(),
-      routes: routes,
+     // home:const Language(),
+      getPages: routes,
+     // routes: routes,
     );
   }
 }
