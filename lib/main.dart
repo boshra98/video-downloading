@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:video_downloading/core/localization/changelocal.dart';
 import 'package:video_downloading/core/services/services.dart';
-import 'package:video_downloading/view/screen/language.dart';
-import 'package:video_downloading/view/screen/onboarding.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:video_downloading/view/screen/searchpage.dart';
+import 'package:video_downloading/view/screen/homepage.dart';
+import 'controller/homepage_controller.dart';
 import 'core/constant/color.dart';
 import 'core/localization/translatio.dart';
 import 'router.dart';
@@ -41,8 +41,26 @@ class MyApp extends StatelessWidget {
       ),
      // home:const Language(),
       getPages: routes,
-     // routes: routes,
+      // home: Scaffold(
+      //   body: Obx(() {
+      //     final currentIndex = HomePageController.currentIndex.value;
+      //
+      //     switch (currentIndex) {
+      //       case 0:
+      //         return HomePage();
+      //       case 1:
+      //         return DownloadPage();
+      //
+      //       default:
+      //         return HomePage();
+      //     }
+      //   }),
+      //   bottomNavigationBar: BottomBar(),
+      // ),
     );
+     // routes: routes,
+    
   }
+  
 }
 

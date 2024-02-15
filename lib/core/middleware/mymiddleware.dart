@@ -11,7 +11,7 @@ class MyMiddleWare extends GetMiddleware {
   @override
   RouteSettings? redirect(String? route) {
     if (myServices.sharedPreferences.getString("onboarding") == "1") {
-      return const RouteSettings(name: AppRoute.downloadpage);
+      return const RouteSettings(name: AppRoute.homePage);
     }
   }
 }
