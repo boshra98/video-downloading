@@ -81,6 +81,7 @@ dependencies:
   google_nav_bar: ^5.0.6
   flutter_insta: ^1.0.1
   flutter_downloader: ^1.11.6
+  flutter_reels_downloader: ^0.0.1
 
 dev_dependencies:
   flutter_test:

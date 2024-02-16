@@ -41,22 +41,7 @@ class MyApp extends StatelessWidget {
       ),
      // home:const Language(),
       getPages: routes,
-      // home: Scaffold(
-      //   body: Obx(() {
-      //     final currentIndex = HomePageController.currentIndex.value;
-      //
-      //     switch (currentIndex) {
-      //       case 0:
-      //         return HomePage();
-      //       case 1:
-      //         return DownloadPage();
-      //
-      //       default:
-      //         return HomePage();
-      //     }
-      //   }),
-      //   bottomNavigationBar: BottomBar(),
-      // ),
+
     );
      // routes: routes,
     
