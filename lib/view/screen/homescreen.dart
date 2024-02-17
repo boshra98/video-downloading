@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:video_downloading/controller/homescreen_controller.dart';
+import 'package:video_downloading/core/constant/imageasset.dart';
 
 import '../../core/constant/color.dart';
 
@@ -18,7 +19,26 @@ class HomeScreen extends StatelessWidget {
       drawer:  Drawer(
         child: Container(
           padding: const EdgeInsets.all(15),
-          child: ListView( children:  [
+          child: ListView(
+              children:  [
+                Row(
+                  children: [
+                    SizedBox(
+                      width: 80,
+                      height:80 ,
+                      child:ClipRRect(
+                        borderRadius: BorderRadius.circular(60),
+                        child: Image.asset(
+                          ImageAsset.logo ,
+                          fit: BoxFit.cover ,
+                        ),
+                      )
+                    ),
+                    Expanded(child:ListTile(
+                      title: Text("infinity application")
+                    ))
+                  ],
+                ) ,
             ListTile(
               title: const Text("theme"),
               leading: const Icon(Icons.wb_sunny_outlined),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_downloading/core/localization/changelocal.dart';
 import 'package:video_downloading/core/services/services.dart';
 import 'package:get/get.dart';
+import 'package:video_downloading/test.dart';
 import 'package:video_downloading/view/screen/searchpage.dart';
 import 'package:video_downloading/view/screen/homepage.dart';
 import 'controller/homepage_controller.dart';
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
       ),
      // home:const Language(),
       getPages: routes,
+      //home: DownloadPage(),
 
     );
      // routes: routes,

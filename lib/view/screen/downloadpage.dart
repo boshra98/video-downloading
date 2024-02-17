@@ -2,25 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_reels_downloader/flutter_reels_downloader.dart';
 
-void main() {
-  runApp(MyApp());
-}
 
-class MyApp extends StatelessWidget {
+
+class DownloadPage extends StatelessWidget {
+  const DownloadPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: const MyDownloadPage(),
     );
   }
 }
 
-class HomePage extends StatefulWidget {
+class MyDownloadPage extends StatefulWidget {
+  const MyDownloadPage({Key? key}) : super(key: key);
+
   @override
-  _HomePageState createState() => _HomePageState();
+  _MyDownloadPageState createState() => _MyDownloadPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _MyDownloadPageState extends State<MyDownloadPage> {
   ReelDownloader reelDownloader = ReelDownloader(); // create instance of FlutterInsta class
   TextEditingController reelController = TextEditingController();
 

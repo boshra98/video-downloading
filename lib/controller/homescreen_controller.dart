@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:video_downloading/view/screen/downloadpage.dart';
 import 'package:video_downloading/view/screen/searchpage.dart';
 
 import '../view/screen/homepage.dart';
@@ -15,19 +16,10 @@ class HomeScreenControllerImp extends HomeScreenController{
    const HomePage(),
 
     SearchPage(),
+    DownloadPage(),
 
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Center( child: Text("setting"))
-      ],
-    ),
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Center( child: Text("profile"))
-      ],
-    ) ,
+
+
 
 
       ];

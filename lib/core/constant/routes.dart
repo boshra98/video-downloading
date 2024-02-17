@@ -4,5 +4,6 @@ class AppRoute {
   static const String onBoarding = "/onboarding";
   static const String browserPage = "/browserpage";
   static const String searchPage = "/searchpage";
+  static const String downloadPage="/downladpage";
 
 }
