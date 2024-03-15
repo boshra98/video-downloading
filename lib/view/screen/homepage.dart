@@ -8,31 +8,32 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:video_downloading/controller/homepage_controller.dart';
 import 'package:video_downloading/controller/homescreen_controller.dart';
 
+import '../../bannerads.dart';
 import '../../core/constant/color.dart';
 
-class HomePage extends StatelessWidget {
+// class HomePage extends StatelessWidget {
+//   const HomePage({Key? key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       theme: ThemeData(
+//         primarySwatch: Colors.pink,
+//       ),
+//       home: const MyHomePage(),
+//     );
+//   }
+// }
+
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.pink,
-      ),
-      home: const MyHomePage(),
-    );
-  }
+  HomePageState createState() => HomePageState();
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
-  @override
-  MyHomePageState createState() => MyHomePageState();
-}
-
-class MyHomePageState extends State<MyHomePage> {
+class HomePageState extends State<HomePage> {
   TextEditingController textController = TextEditingController();
   FlutterInsta flutterInsta =FlutterInsta();
   bool downloading = false;
@@ -84,7 +85,8 @@ class MyHomePageState extends State<MyHomePage> {
     return  Scaffold(
 
               body: Container(
-                color: AppColor.thirdColor,
+               // color: AppColor.thirdColor,
+                //
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
@@ -100,12 +102,13 @@ class MyHomePageState extends State<MyHomePage> {
                       color: AppColor.primaryColor,
                       helpText: "download ...",
                       autoFocus: true,
-                      closeSearchOnSuffixTap: true,
+                      closeSearchOnSuffixTap: false,
                       animationDurationInMilli: 2000,
                       rtl: true,
                       onSubmitted: (String) {},
                       //  onSubmitted: (String ) {  },
                     ),
+
                     ElevatedButton(
                         child: const Text('download'),
                         onPressed: () {
@@ -118,9 +121,13 @@ class MyHomePageState extends State<MyHomePage> {
                             download(myurl);
                           }
                         }),
+                    MyBannerAdWidget(),
                   ],
+
                 ),
               ),
+
+
 
                 );
 

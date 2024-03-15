@@ -104,3 +104,70 @@ class _MyDownloadPageState extends State<MyDownloadPage> {
     });
   }
 }
+
+
+
+// import 'dart:io';
+// import 'package:http/http.dart' as http;
+//
+//
+//  class DownloadPage extends StatefulWidget {
+//    const DownloadPage({Key? key}) : super(key: key);
+//
+//    @override
+//    DownloadPageState createState() => DownloadPageState();
+//  }
+//
+//  class DownloadPageState extends State<DownloadPage> {
+//
+//
+//
+//    @override
+//    Widget build(BuildContext context) {
+//
+//      return
+//         Scaffold(
+//
+//         );
+//    }
+//
+//    void main() {
+//      String videoUrl = 'https://www.instagram.com/p/VIDEO_ID/';
+//      String savePath = 'path/to/save/video.mp4';
+//
+//      downloadVideo(videoUrl, savePath).then((success) {
+//        if (success) {
+//          print('Video downloaded successfully!');
+//        } else {
+//          print('Failed to download video.');
+//        }
+//      });
+//    }
+//
+//    Future<bool> downloadVideo(String videoUrl, String savePath) async {
+//      try {
+//        // Send a GET request to the video URL
+//        var response = await http.get(Uri.parse(videoUrl));
+//
+//        // Check if the request was successful
+//        if (response.statusCode == 200) {
+//          // Save the video file locally
+//          File file = File(savePath);
+//          await file.writeAsBytes(response.bodyBytes);
+//          return true;
+//        } else {
+//          return false;
+//        }
+//      } catch (e) {
+//        print('Error: $e');
+//        return false;
+//      }
+//    }
+//
+//
+// }
+
+
+
+
+

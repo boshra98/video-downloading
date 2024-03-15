@@ -7,31 +7,19 @@ import 'package:video_downloading/controller/homepage_controller.dart';
 import 'package:flutter_insta/flutter_insta.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 
+import '../../bannerads.dart';
 import '../../core/constant/color.dart';
 
-class SearchPage extends StatelessWidget {
+
+
+class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.pink,
-      ),
-      home: const MySearchPage(),
-    );
-  }
+  SearchPageState createState() => SearchPageState();
 }
 
-class MySearchPage extends StatefulWidget {
-  const MySearchPage({Key? key}) : super(key: key);
-
-  @override
-  MySearchPageState createState() => MySearchPageState();
-}
-
-class MySearchPageState extends State<MySearchPage> {
+class SearchPageState extends State<SearchPage> {
   TextEditingController textController = TextEditingController();
   void _search(String query) async {
     final url = 'https://www.google.com/search?q=$query';
@@ -54,7 +42,7 @@ class MySearchPageState extends State<MySearchPage> {
     return  Scaffold(
 
               body: Container(
-                color: AppColor.thirdColor,
+                //color: AppColor.thirdColor,
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
@@ -70,7 +58,7 @@ class MySearchPageState extends State<MySearchPage> {
                       color: AppColor.primaryColor,
                       helpText: "search  ...",
                       autoFocus: true,
-                      closeSearchOnSuffixTap: true,
+                      closeSearchOnSuffixTap: false,
                       animationDurationInMilli: 2000,
                       rtl: true,
                       onSubmitted: (String) {},
@@ -84,6 +72,8 @@ class MySearchPageState extends State<MySearchPage> {
                         _search(query);
                       },
                     ),
+                    MyBannerAdWidget(),
+
                   ],
                 ),
               ),

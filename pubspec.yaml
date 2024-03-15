@@ -82,7 +82,9 @@ dependencies:
   flutter_insta: ^1.0.1
   flutter_downloader: ^1.11.6
   flutter_reels_downloader: ^0.0.1
-
+  google_mobile_ads: ^4.0.0
+  permission_handler: ^11.3.0
+  dio: ^5.4.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

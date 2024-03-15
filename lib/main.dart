@@ -6,6 +6,7 @@ import 'package:video_downloading/test.dart';
 import 'package:video_downloading/view/screen/searchpage.dart';
 import 'package:video_downloading/view/screen/homepage.dart';
 import 'controller/homepage_controller.dart';
+
 import 'core/constant/color.dart';
 import 'core/localization/translatio.dart';
 import 'router.dart';
@@ -29,17 +30,15 @@ class MyApp extends StatelessWidget {
       translations: MyTranslation(),
       debugShowCheckedModeBanner: false,
       locale:controller.language,
-      theme: ThemeData(
-        fontFamily: "playfairDisplay",
-        textTheme: const TextTheme(
-          headline1:  TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 20,color:AppColor.black) ,
-          bodyText1: TextStyle(
-              height:2,color:AppColor.grey,fontWeight: FontWeight.bold,fontSize: 17),
-          bodyText2: TextStyle(
-              height:2,color:AppColor.grey,fontSize: 14),
-        ),
-      ),
+
+      theme: Themes.customDarkTheme,
+
+
+
+
+
+
+
      // home:const Language(),
       getPages: routes,
       //home: DownloadPage(),
@@ -50,4 +49,47 @@ class MyApp extends StatelessWidget {
   }
   
 }
+
+ class Themes{
+   static ThemeData customDarkTheme = ThemeData.dark().copyWith(
+     textTheme: const TextTheme(
+       headline1:  TextStyle(
+         fontWeight: FontWeight.bold, fontSize: 20,color:AppColor.black,fontFamily: "playfairDisplay",
+       ) ,
+       bodyText1: TextStyle(
+         height:2,color:AppColor.grey,fontWeight: FontWeight.bold,fontSize: 17 , fontFamily: "playfairDisplay",
+       ),
+       bodyText2: TextStyle(
+         height:2,color:AppColor.grey,fontSize: 14 ,fontFamily: "playfairDisplay",
+       ),
+     ),
+
+     appBarTheme: AppBarTheme(color: AppColor.fourthColor),
+     //scaffoldBackgroundColor: AppColor.thirdColor,
+     bottomAppBarTheme:  BottomAppBarTheme(color: AppColor.fourthColor),
+     //primarySwatch: Colors.pink,
+       //bottomNavigationBar :  AppColor.fourthColor,
+      // GNav
+   );
+   static ThemeData customLightTheme = ThemeData.light().copyWith(
+     textTheme: const TextTheme(
+       headline1:  TextStyle(
+         fontWeight: FontWeight.bold, fontSize: 20,color:AppColor.black,fontFamily: "playfairDisplay",
+       ) ,
+       bodyText1: TextStyle(
+         height:2,color:AppColor.grey,fontWeight: FontWeight.bold,fontSize: 17 , fontFamily: "playfairDisplay",
+       ),
+       bodyText2: TextStyle(
+         height:2,color:AppColor.grey,fontSize: 14 ,fontFamily: "playfairDisplay",
+       ),
+     ),
+
+     appBarTheme: AppBarTheme(color:Colors.white),
+     //scaffoldBackgroundColor: ScaffoldBackgroundColorTheme(),
+     bottomAppBarTheme:  BottomAppBarTheme(color:Colors.white),
+       //bottomNavigationBar:
+
+   );
+
+ }
 

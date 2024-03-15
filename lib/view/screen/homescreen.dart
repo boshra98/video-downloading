@@ -3,8 +3,12 @@ import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:video_downloading/controller/homescreen_controller.dart';
 import 'package:video_downloading/core/constant/imageasset.dart';
+import 'package:video_downloading/view/screen/language.dart';
+import 'package:video_downloading/view/screen/onboarding.dart';
 
+import '../../bannerads.dart';
 import '../../core/constant/color.dart';
+import '../../main.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -13,12 +17,16 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(HomeScreenControllerImp()) ;
     return  GetBuilder<HomeScreenControllerImp>(builder: (controller) =>Scaffold(
+
+
       appBar: AppBar(
-        backgroundColor: AppColor.fourthColor,
+// backgroundColor: AppColor.fourthColor,
       ),
       drawer:  Drawer(
-        child: Container(
+          child: Container(
           padding: const EdgeInsets.all(15),
+
+           // padding: const EdgeInsets.symmetric(horizontal: 20),
           child: ListView(
               children:  [
                 Row(
@@ -26,6 +34,7 @@ class HomeScreen extends StatelessWidget {
                     SizedBox(
                       width: 80,
                       height:80 ,
+
                       child:ClipRRect(
                         borderRadius: BorderRadius.circular(60),
                         child: Image.asset(
@@ -34,25 +43,37 @@ class HomeScreen extends StatelessWidget {
                         ),
                       )
                     ),
-                    Expanded(child:ListTile(
-                      title: Text("infinity application")
+                    const Expanded(child:ListTile(
+                      title: Text("infinity Search and download")
                     ))
                   ],
                 ) ,
             ListTile(
               title: const Text("theme"),
               leading: const Icon(Icons.wb_sunny_outlined),
-              onTap:(){},
+              onTap:(){
+                if(Get.isDarkMode){
+                   Get.changeTheme(Themes.customLightTheme);
+                 } else{
+                   Get.changeTheme(Themes.customDarkTheme);
+                 }
+              },
             ),
             ListTile(
               title: const Text("language"),
               leading: const Icon(Icons.language),
-              onTap:(){},
+              onTap:(){
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Language()));
+              },
             ),
             ListTile(
               title: const Text("About"),
               leading: const Icon(Icons.help_outline_outlined),
-              onTap:(){},
+              onTap:(){
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=> OnBoarding()));
+
+
+              },
             ),
             ListTile(
               title: const Text("contact us"),
@@ -65,11 +86,11 @@ class HomeScreen extends StatelessWidget {
       ),
 
       bottomNavigationBar: Container(
-        color: AppColor.fourthColor,
+      //  color: AppColor.fourthColor,
         child:  Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
           child: GNav(
-              backgroundColor: AppColor.fourthColor,
+              //backgroundColor: AppColor.fourthColor,
               color: AppColor.primaryColor,
               activeColor: Colors.white,
               tabBackgroundColor: Colors.grey,
