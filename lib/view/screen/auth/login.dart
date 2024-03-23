@@ -29,7 +29,7 @@ class Login extends StatelessWidget {
             child:ListView(children: [
              const  LogoAuth(),
               // SizedBox(height: 20,) ,
-            const  CustomTextTitleAuth(text: "welcome Back" ,) ,
+              CustomTextTitleAuth(text: "2".tr ) ,
              const  SizedBox(height: 10) ,
              const  CustomTextBodyauth(text: "sign in with your email and password or continue with social media"),
              const  SizedBox(height: 15) ,

@@ -102,14 +102,14 @@ class HomeScreen extends StatelessWidget {
                     controller.changePage(0);
                   } ,
                   icon: Icons.home,
-                  text: 'Home',
+                  text: '21'.tr,
                 ),
                 GButton(
                     onPressed: () {
                       controller.changePage(1);
                     } ,
                     icon: Icons.search,
-                    text: 'search'
+                    text: '15'.tr
                 ),
                 GButton(
                     onPressed: () {
@@ -117,7 +117,7 @@ class HomeScreen extends StatelessWidget {
 
                     } ,
                     icon: Icons.download,
-                    text: 'download'),
+                    text: '23'.tr),
               ]),
         ),
       ),

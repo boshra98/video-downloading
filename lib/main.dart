@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
    static ThemeData customDarkTheme = ThemeData.dark().copyWith(
      textTheme: const TextTheme(
        headline1:  TextStyle(
-         fontWeight: FontWeight.bold, fontSize: 20,color:AppColor.black,fontFamily: "playfairDisplay",
+         fontWeight: FontWeight.bold, fontSize: 20,color:AppColor.primaryColor,fontFamily: "playfairDisplay",
        ) ,
        bodyText1: TextStyle(
          height:2,color:AppColor.grey,fontWeight: FontWeight.bold,fontSize: 17 , fontFamily: "playfairDisplay",
@@ -64,9 +64,9 @@ class MyApp extends StatelessWidget {
        ),
      ),
 
-     appBarTheme: AppBarTheme(color: AppColor.fourthColor),
+    // appBarTheme: AppBarTheme(color: AppColor.fourthColor),
      //scaffoldBackgroundColor: AppColor.thirdColor,
-     bottomAppBarTheme:  BottomAppBarTheme(color: AppColor.fourthColor),
+    // bottomAppBarTheme:  BottomAppBarTheme(color: AppColor.fourthColor),
      //primarySwatch: Colors.pink,
        //bottomNavigationBar :  AppColor.fourthColor,
       // GNav

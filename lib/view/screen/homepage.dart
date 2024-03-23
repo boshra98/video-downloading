@@ -1,9 +1,11 @@
 import 'package:anim_search_bar/anim_search_bar.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_insta/flutter_insta.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:video_downloading/controller/homepage_controller.dart';
 import 'package:video_downloading/controller/homescreen_controller.dart';
@@ -33,21 +35,34 @@ class HomePage extends StatefulWidget {
   HomePageState createState() => HomePageState();
 }
 
-class HomePageState extends State<HomePage> {
-  TextEditingController textController = TextEditingController();
-  FlutterInsta flutterInsta =FlutterInsta();
+class HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
+  FlutterInsta flutterInstagram = FlutterInsta();
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController reelController = TextEditingController();
+  TabController? tabController;
+
+  String? username, followers = " ", following, bio, website, profileimage;
+  bool pressed = false;
   bool downloading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(vsync: this, initialIndex: 1, length: 2);
+  }
+  TextEditingController textController = TextEditingController();
+
   showAlertDialog(BuildContext context) {
     // set up the button
     Widget okButton = TextButton(
-      child: Text("OK"),
+      child: Text("4".tr),
       onPressed: () {},
     );
 
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: const Text("My title"),
-      content: const Text("This is my message."),
+      title:  Text("3".tr),
+      content:  Text("5".tr),
       actions: [
         okButton,
       ],
@@ -63,18 +78,17 @@ class HomePageState extends State<HomePage> {
   }
 
   void download(String myurl) async {
-    var myvideourl = await flutterInsta.downloadReels(myurl);
 
-    await FlutterDownloader.enqueue(
-      url: '$myvideourl',
-      savedDir: '/sdcard/Download',
-      showNotification: true,
-      // show download progress in status bar (for Android)
-      openFileFromNotification:
-      true, // click on notification to open downloaded file (for Android)
-    ).whenComplete(() {
+    await Permission.manageExternalStorage.request();
+    await Permission.storage.request();
+    var myVideoUrl = await flutterInstagram.downloadReels(reelController.text);
+    final Dio dio = Dio();
+
+    await dio
+        .download(myVideoUrl, '/storage/emulated/0/Download/boshra.mp4')
+        .then((value) {
       setState(() {
-        downloading = false; // set to false to stop Progress indicator
+        downloading = false;
       });
     });
   }
@@ -102,7 +116,7 @@ class HomePageState extends State<HomePage> {
                       color: AppColor.primaryColor,
                       helpText: "download ...",
                       autoFocus: true,
-                      closeSearchOnSuffixTap: false,
+                      closeSearchOnSuffixTap: true,
                       animationDurationInMilli: 2000,
                       rtl: true,
                       onSubmitted: (String) {},
@@ -110,16 +124,25 @@ class HomePageState extends State<HomePage> {
                     ),
 
                     ElevatedButton(
-                        child: const Text('download'),
+                        child:  Text('12'.tr),
                         onPressed: () {
                           String myurl = textController.text;
-                          if (myurl.contains("youtube")) {
+                          if (myurl.contains("youtube.com")) {
                             showAlertDialog(context);
                             //print(myurl);
                             // ignore: unused_element
-                          } else if (myurl.contains("instagram")) {
+                          } else if (myurl.contains("instagram.com")) {
+                            downloading=true;
                             download(myurl);
                           }
+                          else if (myurl.contains("facebook.com"))
+                            {
+                              _launchFacebookVideoUrl(myurl);
+
+                            }
+
+
+
                         }),
                     MyBannerAdWidget(),
                   ],
@@ -133,4 +156,17 @@ class HomePageState extends State<HomePage> {
 
 
   }
+
+
+  void _launchFacebookVideoUrl(String videoUrl) async {
+    // ignore: deprecated_member_use
+    if (await canLaunch(videoUrl)) {
+      // ignore: deprecated_member_use
+      await launch(videoUrl, forceSafariVC: false);
+    } else {
+      throw 'Could not launch $videoUrl';
+    }
+  }
+
+//  enableJavaScript: true, enableDomStorage: true,videoUrl, forceSafariVC: false
 }

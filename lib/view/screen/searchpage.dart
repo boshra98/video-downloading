@@ -65,7 +65,7 @@ class SearchPageState extends State<SearchPage> {
                       //  onSubmitted: (String ) {  },
                     ),
                     ElevatedButton(
-                      child: const Text('Search'),
+                      child:  Text('15'.tr),
                       onPressed: () {
                         String query = textController.text;
 

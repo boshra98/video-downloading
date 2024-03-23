@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 
@@ -22,7 +23,7 @@ class CustomButtonOnBoarding extends GetView<OnBoardingControllerImp>{
             controller.next();
           },
           color:AppColor.primaryColor,
-          child:const Text("continue" )),
+          child: Text("26".tr )),
 
     );
   }
