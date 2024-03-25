@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:video_downloading/core/localization/changelocal.dart';
 import 'package:video_downloading/core/services/services.dart';
 import 'package:get/get.dart';
+import 'package:video_downloading/src/database/reel_data.dart';
 import 'package:video_downloading/test.dart';
 import 'package:video_downloading/view/screen/searchpage.dart';
 import 'package:video_downloading/view/screen/homepage.dart';
@@ -13,8 +16,11 @@ import 'router.dart';
 
 void main() async {
 
-  WidgetsFlutterBinding.ensureInitialized();
-  await initialservices();
+  //WidgetsFlutterBinding.ensureInitialized();
+  //await initialservices();
+  await Hive.initFlutter();
+  Hive.registerAdapter(ReelDataAdapter());
+  await Hive.openBox<ReelData>('reel');
   runApp(const MyApp());
 }
 

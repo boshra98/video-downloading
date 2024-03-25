@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ) ,
             ListTile(
-              title: const Text("theme"),
+              title:  Text("8".tr),
               leading: const Icon(Icons.wb_sunny_outlined),
               onTap:(){
                 if(Get.isDarkMode){
@@ -60,14 +60,14 @@ class HomeScreen extends StatelessWidget {
               },
             ),
             ListTile(
-              title: const Text("language"),
+              title:  Text("9".tr),
               leading: const Icon(Icons.language),
               onTap:(){
                 Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Language()));
               },
             ),
             ListTile(
-              title: const Text("About"),
+              title:  Text("7".tr),
               leading: const Icon(Icons.help_outline_outlined),
               onTap:(){
                 Navigator.of(context).push(MaterialPageRoute(builder: (context)=> OnBoarding()));
@@ -76,7 +76,7 @@ class HomeScreen extends StatelessWidget {
               },
             ),
             ListTile(
-              title: const Text("contact us"),
+              title:  Text("6".tr),
               leading: const Icon(Icons.phone_android_outlined),
               onTap:(){},
             ),

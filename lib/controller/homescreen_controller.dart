@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:video_downloading/view/screen/downloadpage.dart';
 import 'package:video_downloading/view/screen/searchpage.dart';
 
+import '../src/features/home/view/home.dart';
 import '../view/screen/homepage.dart';
 
 abstract class HomeScreenController extends GetxController{
@@ -16,7 +17,8 @@ class HomeScreenControllerImp extends HomeScreenController{
    const HomePage(),
 
     SearchPage(),
-    DownloadPage(),
+    //DownloadPage(),
+    NewHome()
 
 
 
