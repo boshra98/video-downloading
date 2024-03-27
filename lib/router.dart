@@ -18,6 +18,7 @@ List<GetPage<dynamic>>? routes= [
   GetPage(name:AppRoute.downloadPage, page: ()=>  DownloadPage()) ,
 
 
+
   // GetPage(name: AppRoute.browserPage, page: ()=> const BrowserPage()) ,
   GetPage(name: AppRoute.onBoarding, page: ()=> const OnBoarding()) ,
 

@@ -7,6 +7,7 @@ import 'package:video_downloading/controller/homepage_controller.dart';
 import 'package:flutter_insta/flutter_insta.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 
+import '../../ads.dart';
 import '../../bannerads.dart';
 import '../../core/constant/color.dart';
 
@@ -67,6 +68,8 @@ class SearchPageState extends State<SearchPage> {
                     ElevatedButton(
                       child:  Text('15'.tr),
                       onPressed: () {
+                        ads ad = new ads();
+                        ad.showAd();
                         String query = textController.text;
 
                         _search(query);

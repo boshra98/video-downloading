@@ -8,11 +8,13 @@ import '../cubit/home_cubit.dart';
 
 
 class NewHome extends StatelessWidget {
+
   final TextEditingController urlController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     final homeCubit = BlocProvider.of<HomeCubit>(context);
+
 
     return Scaffold(
       appBar: AppBar(

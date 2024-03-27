@@ -1,30 +1,62 @@
+
+
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:video_downloading/core/localization/changelocal.dart';
 import 'package:video_downloading/core/services/services.dart';
 import 'package:get/get.dart';
 import 'package:video_downloading/src/database/reel_data.dart';
-import 'package:video_downloading/test.dart';
-import 'package:video_downloading/view/screen/searchpage.dart';
-import 'package:video_downloading/view/screen/homepage.dart';
-import 'controller/homepage_controller.dart';
-
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'core/constant/color.dart';
 import 'core/localization/translatio.dart';
 import 'router.dart';
+AppOpenAd? _AppOpenAd;
 
-void main() async {
+Future<void> _loadAd() async {
 
-  //WidgetsFlutterBinding.ensureInitialized();
-  //await initialservices();
+
+  final String adUnitId = 'ca-app-pub-8943280289420872/3592040238';
+
+  /*Platform.isAndroid
+  // Use this ad unit on Android...
+      ? 'ca-app-pub-8943280289420872/3592040238'
+  // ... or this one on iOS.
+      : 'ca-app-pub-3940256099942544/2934735716';*/
+  print("heloo");
+  AppOpenAd.load(
+      adUnitId: 'ca-app-pub-8943280289420872/3592040238',
+      request: const AdRequest(),
+      adLoadCallback: AppOpenAdLoadCallback(
+          onAdLoaded: (ad) {
+            print("lll");
+            _AppOpenAd = ad;
+            _AppOpenAd!.show();
+          },
+          onAdFailedToLoad: (LoadAdError error) {}),
+      orientation: AppOpenAd.orientationPortrait);
+}
+Future<void>  main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  await initialservices();
+  await MobileAds.instance.initialize();
+  _loadAd();
   await Hive.initFlutter();
   Hive.registerAdapter(ReelDataAdapter());
   await Hive.openBox<ReelData>('reel');
+
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+
   const MyApp({super.key});
 
   // This widget is the root of your application.
@@ -45,9 +77,9 @@ class MyApp extends StatelessWidget {
 
 
 
-     // home:const Language(),
+      // home:const Language(),
       getPages: routes,
-      //home: DownloadPage(),
+     // home: NewHome(),
 
     );
      // routes: routes,
@@ -58,6 +90,8 @@ class MyApp extends StatelessWidget {
 
  class Themes{
    static ThemeData customDarkTheme = ThemeData.dark().copyWith(
+     visualDensity: VisualDensity.adaptivePlatformDensity,
+
      textTheme: const TextTheme(
        headline1:  TextStyle(
          fontWeight: FontWeight.bold, fontSize: 20,color:AppColor.primaryColor,fontFamily: "playfairDisplay",
@@ -78,6 +112,8 @@ class MyApp extends StatelessWidget {
       // GNav
    );
    static ThemeData customLightTheme = ThemeData.light().copyWith(
+     visualDensity: VisualDensity.adaptivePlatformDensity,
+
      textTheme: const TextTheme(
        headline1:  TextStyle(
          fontWeight: FontWeight.bold, fontSize: 20,color:AppColor.black,fontFamily: "playfairDisplay",

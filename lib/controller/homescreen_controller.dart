@@ -17,8 +17,8 @@ class HomeScreenControllerImp extends HomeScreenController{
    const HomePage(),
 
     SearchPage(),
-    //DownloadPage(),
-    NewHome()
+    DownloadPage(),
+    //NewHome()
 
 
 

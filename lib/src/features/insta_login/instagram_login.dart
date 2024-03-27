@@ -1,9 +1,7 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-
-
-
 
 class InstaLogin extends StatefulWidget {
   @override
@@ -21,8 +19,7 @@ class InstaLoginState extends State<InstaLogin> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      //body: WebViewWidget(controller:controller),
-      child:WebView(
+      child: WebView(
         javascriptMode: JavascriptMode.unrestricted,
         initialUrl: 'https://www.instagram.com/accounts/login/',
         navigationDelegate: (navigation) {
@@ -37,5 +34,5 @@ class InstaLoginState extends State<InstaLogin> {
     );
   }
 }
-//
+
 

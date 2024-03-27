@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "906301605644",
+    "project_id": "myvideodownloading",
+    "storage_bucket": "myvideodownloading.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906301605644:android:81adb1737cb28ccb3feb29",
+        "android_client_info": {
+          "package_name": "com.example.video_downloading"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqumUZJrfmlGVYKfcyOuWbb9YwGhzL9y4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

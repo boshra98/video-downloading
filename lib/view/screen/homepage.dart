@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +12,9 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:video_downloading/controller/homepage_controller.dart';
 import 'package:video_downloading/controller/homescreen_controller.dart';
 
+import '../../ads.dart';
+import '../../src/features/downloaded_reels/cubit/download_cubit.dart';
+import '/../../src/features/home/cubit/home_cubit.dart';
 import '../../bannerads.dart';
 import '../../core/constant/color.dart';
 
@@ -44,7 +49,11 @@ class HomePageState extends State<HomePage> with SingleTickerProviderStateMixin 
   String? username, followers = " ", following, bio, website, profileimage;
   bool pressed = false;
   bool downloading = false;
-
+   //DownloadCubit() {
+  //   // TODO: implement DownloadCubit
+   //  throw UnimplementedError();
+  // }
+ // final homeCubit = new HomeCubit();
   @override
   void initState() {
     super.initState();
@@ -126,17 +135,32 @@ class HomePageState extends State<HomePage> with SingleTickerProviderStateMixin 
                     ElevatedButton(
                         child:  Text('12'.tr),
                         onPressed: () {
+                          ads ad = new ads();
+                          ad.showAd();
                           String myurl = textController.text;
                           if (myurl.contains("youtube.com")) {
                             showAlertDialog(context);
                             //print(myurl);
                             // ignore: unused_element
                           } else if (myurl.contains("instagram.com")) {
-                            downloading=true;
-                            download(myurl);
+
+
+                            final homecubit=new HomeCubit();
+                            homecubit.downloadReal
+                              (
+                              myurl,
+                              context,
+                            );
+
+
+                            //download(myurl);
                           }
                           else if (myurl.contains("facebook.com"))
                             {
+
+
+
+
                               _launchFacebookVideoUrl(myurl);
 
                             }
@@ -144,6 +168,12 @@ class HomePageState extends State<HomePage> with SingleTickerProviderStateMixin 
 
 
                         }),
+                    !downloading
+                        ? const Center(
+                      child:
+                      CircularProgressIndicator(), //if downloading is true show Progress Indicator
+                    )
+                        : Container(),
                     MyBannerAdWidget(),
                   ],
 
@@ -161,6 +191,9 @@ class HomePageState extends State<HomePage> with SingleTickerProviderStateMixin 
   void _launchFacebookVideoUrl(String videoUrl) async {
     // ignore: deprecated_member_use
     if (await canLaunch(videoUrl)) {
+      // ignore: deprecated_member_use
+     // await launch(videoUrl,
+       //   forceWebView: true, enableJavaScript: true, enableDomStorage: true,forceSafariVC: false);
       // ignore: deprecated_member_use
       await launch(videoUrl, forceSafariVC: false);
     } else {

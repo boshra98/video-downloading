@@ -40,9 +40,10 @@ class HomeCubit extends Cubit<HomeState> {
     // is Cookie found then set isLogin to true
     if (gotCookies.length > 0) isLogin = true;
 
-    if (!isLogin)
+    if (!isLogin) {
       await Navigator.push(
           context, MaterialPageRoute(builder: (_) => InstaLogin()));
+    }
 
     // Build the url
     var linkParts = link.replaceAll(" ", "").split("/");

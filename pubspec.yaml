@@ -39,7 +39,7 @@ dependencies:
     # DateTime
   jiffy: ^5.0.0
   intl: ^0.18.0
-  http: ^0.13.4
+  http: ^0.13.6
     # Images
   cached_network_image: ^3.2.0
   image_picker: ^0.7.2+1
@@ -79,10 +79,10 @@ dependencies:
   flutter_insta: ^1.0.1
   flutter_downloader: ^1.11.6
   flutter_reels_downloader: ^0.0.1
-  google_mobile_ads: ^4.0.0
+  google_mobile_ads: ^2.4.0
   permission_handler: ^11.3.0
   dio: ^5.4.1
-  webview_flutter: ^4.7.0
+  webview_flutter: ^3.0.4
   hive_flutter: ^1.1.0
   hive: ^2.2.3
   uri_to_file: ^1.0.0
@@ -92,6 +92,9 @@ dependencies:
   video_thumbnail: ^0.5.3
   path_provider: ^2.1.2
   image_gallery_saver: ^2.0.3
+  flutter_webview_plugin: ^0.4.0
+  open_file: ^3.3.2
+  firebase_core: ^2.27.2
 
 dev_dependencies:
   flutter_test:
